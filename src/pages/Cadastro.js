@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import '../estilos/Cadastro.css';
+import Alert from '../components/Alert';
 
 const Cadastro = () => {
   const location = useLocation();
@@ -58,28 +59,16 @@ const Cadastro = () => {
         a.click();
         window.URL.revokeObjectURL(url);
 
-        setAlert({
-          message: 'Imagem baixada com sucesso!',
-          type: 'success',
-        });
+        setAlert({ message: 'Cadastro enviado e imagem baixada com sucesso!', type: 'success' });
       } else if (response.status === 422) {
         const errorData = await response.json();
         const errorMessage = errorData.Errors ? errorData.Errors.join(', ') : 'Erro desconhecido';
-        setAlert({
-          message: errorMessage,
-          type: 'error',
-        });
+        setAlert({ message: errorMessage, type: 'error' });
       } else {
-        setAlert({
-          message: 'Erro ao enviar o cadastro. Por favor, tente novamente.',
-          type: 'error',
-        });
+        setAlert({ message: 'Erro ao enviar o cadastro. Por favor, tente novamente.', type: 'error' });
       }
     } catch (error) {
-      setAlert({
-        message: `Erro de rede: ${error.message}`,
-        type: 'error',
-      });
+      setAlert({ message: `Erro de rede: ${error.message}`, type: 'error' });
     } finally {
       setIsLoading(false);
     }
@@ -100,16 +89,16 @@ const Cadastro = () => {
       </div>
 
       <div className="form-container">
-        <h1 className="form-title">Baixar</h1>
+        <h1 className="form-title">Baixe a sua imagem</h1>
         
         <form onSubmit={handleSubmit} className="space-y-6">
           <button type="submit" className="submit-button">
-            Enviar
+            BAIXAR
           </button>
         </form>
-        
+
         {alert.message && (
-          <div className={`alert ${alert.type}`}>{alert.message}</div>
+          <Alert message={alert.message} type={alert.type} onClose={closeAlert} />
         )}
       </div>
     </div>
