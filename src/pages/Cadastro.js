@@ -87,10 +87,8 @@ const Cadastro = () => {
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo-image" />
       </div>
-
       <div className="form-container">
         <h1 className="form-title">Baixe a sua imagem</h1>
-        
         <form onSubmit={handleSubmit} className="space-y-6">
           <button type="submit" className="submit-button">
             BAIXAR

@@ -18,15 +18,15 @@
   }
   
   .logo-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 16px; /* Reduzindo a margem inferior */
-  }
+    text-align: center; /* Centraliza a logo horizontalmente */
+    margin-bottom: 20px; /* Adiciona espaço abaixo da logo */
+    height: auto; 
+}
   
   .logo-image {
-    height: 60px; /* Reduzindo o tamanho da logo para economizar espaço */
+    max-width: 180px; /* Reduzindo o tamanho da logo para economizar espaço */
     width: auto;
-    margin-top: 8px;
+    margin-top: -80%; 
   }
   
   .form-container {
@@ -91,7 +91,7 @@
   .submit-button {
     width: 100%;
     background-color: #3182ce;
-    color: #ffffff;
+    color: black;
     padding: 12px; /* Reduzindo o padding do botão */
     border-radius: 8px;
     font-size: 1rem; /* Reduzindo o tamanho da fonte do botão */
